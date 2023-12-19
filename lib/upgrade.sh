@@ -3,7 +3,7 @@ upgrade_package() {
   local package="$2"
 
   local latest="$(asdf latest "$package")"
-  if $? -ne 0; then
+  if test $? -ne 0; then
     return 1
   fi
 
