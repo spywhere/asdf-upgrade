@@ -1,4 +1,9 @@
 upgrade_package() {
+  if test -z "$1"; then
+    echo "error: no scope specified" >&2
+    return 1
+  fi
+
   local scope="$1"
 
   if test -z "$2"; then
@@ -9,7 +14,7 @@ upgrade_package() {
   local package="$2"
 
   local latest="$(asdf latest "$package")"
-  if test $? -ne 0; then
+  if test -z "$latest"; then
     return 1
   fi
 
