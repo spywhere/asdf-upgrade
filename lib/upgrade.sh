@@ -5,7 +5,7 @@ upgrade_package() {
       scope="$1"
       ;;
     *)
-      printf "error: invalid scope '%s'\n" "$scope" >&2
+      printf "error: invalid scope '%s'\n" "$1" >&2
       return 1
       ;;
   esac
