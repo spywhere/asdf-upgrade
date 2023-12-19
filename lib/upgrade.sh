@@ -17,6 +17,12 @@ upgrade_package() {
 
   local package="$2"
 
+  if test "$package" = "upgrade"; then
+    printf "attempt to upgrade 'upgrade' package, updating plugin instead\n"
+    asdf plugin update "$package"
+    return $?
+  fi
+
   local latest="$(asdf latest "$package")"
   if test -z "$latest"; then
     return 1
