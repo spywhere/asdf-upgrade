@@ -3,6 +3,9 @@ upgrade_package() {
   local package="$2"
 
   local latest="$(asdf latest "$package")"
+  if $? -ne 0; then
+    return 1
+  fi
 
   # If the latest version is not installed, install it.
   if ! command asdf list "$package" "$latest" &>/dev/null; then
