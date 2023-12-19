@@ -2,4 +2,4 @@
 
 set -eo pipefail
 
-asdf plugin list | xargs echo
+asdf plugin list | xargs printf

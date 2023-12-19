@@ -1,13 +1,17 @@
 upgrade_package() {
-  if test -z "$1"; then
-    echo "error: no scope specified" >&2
-    return 1
-  fi
-
-  local scope="$1"
+  local scope
+  case "$1" in
+    global|local|shell)
+      scope="$1"
+      ;;
+    *)
+      printf "error: invalid scope '%s'\n" "$scope" >&2
+      return 1
+      ;;
+  esac
 
   if test -z "$2"; then
-    echo "error: no package specified" >&2
+    printf "error: no package specified\n" >&2
     return 1
   fi
 

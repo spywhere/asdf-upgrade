@@ -5,9 +5,9 @@ set -eo pipefail
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../upgrade.sh"
 
 if [[ $# -lt 2 ]]; then
-  echo "usage: asdf upgrade global <plugin>"
-  echo "       asdf upgrade local <plugin>"
-  echo "       asdf upgrade shell <plugin>"
+  printf "usage: asdf upgrade global <plugin>\n"
+  printf "       asdf upgrade local <plugin>\n"
+  printf "       asdf upgrade shell <plugin>\n"
   exit 1
 fi
 
