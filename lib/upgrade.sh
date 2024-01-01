@@ -29,7 +29,7 @@ upgrade_package() {
   fi
 
   # If the latest version is not installed, install it.
-  if ! command asdf list "$package" "$latest" &>/dev/null; then
+  if ! command asdf list "$package" "$latest" 2>/dev/null; then
     asdf install "$package" "$latest"
   fi
 
